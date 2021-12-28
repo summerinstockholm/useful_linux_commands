@@ -103,3 +103,19 @@ catware@ubuntu:~$ pwd<br>
 /home/catware<br>
 catware@ubuntu:~$*<br> 
 **cd** без каких-либо аргументов вернет вас в домашний каталог вошедшего в систему пользователя.
+## cat
+Вывод содержимого файла целиком. Его можно прочитать, но не редактировать. Это приемлимо для небольших файлов, таких как файл fstab в папке /etc.<br>
+*catware@ubuntu:~$ cat /etc/fstab<br>
+\# /etc/fstab: static file system information.<br>
+\#<br>
+\# Use 'blkid' to print the universally unique identifier for a<br>
+\# device; this may be used with UUID= as a more robust way to name devices<br>
+\# that works even if disks are added and removed. See fstab(5).<br>
+\#<br>
+\# <file system> <mount point>   <type>  <options>       <dump>  <pass><br>
+\# / was on /dev/sda5 during installation<br>
+UUID=3dbaa993-4728-4891-a08a-2d93e73df9a7 /               ext4    errors=remount-ro 0       1<br>
+\# /boot/efi was on /dev/sda1 during installation<br>
+UUID=C195-F970  /boot/efi       vfat    umask=0077      0       1
+/swapfile                                 none            swap    sw              0       0<br>
+/dev/fd0        /media/floppy0  auto    rw,user,noauto,exec,utf8 0       0*<br>
