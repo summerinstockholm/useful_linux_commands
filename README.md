@@ -94,13 +94,13 @@ drwx------  2 speech-dispatcher root            4.0K Jan 19  2020 speech-dispatc
 ## cd
 Смена каталога.<br>
 *catware@ubuntu:~$ pwd<br>
-/home/catware<br>
+\/home/catware<br>
 catware@ubuntu:~$ cd /<br>
 catware@ubuntu:/$ pwd<br>
-/<br>
+\/<br>
 catware@ubuntu:/$ cd /home/catware<br>
 catware@ubuntu:~$ pwd<br>
-/home/catware<br>
+\/home/catware<br>
 catware@ubuntu:~$*<br> 
 **cd** без каких-либо аргументов вернет вас в домашний каталог вошедшего в систему пользователя.
 ## cat
