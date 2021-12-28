@@ -12,7 +12,6 @@
   Operating System: Ubuntu 20.04.3 LTS<br>
             Kernel: Linux 5.11.0-41-generic<br>
       Architecture: x86-64*<br>
-
 ## ls
 Вывод содержимого каталога.<br>
 **ls -l** - выводит не только список имен объектов, но и их права доступа к файлам, имя владельца, группу, размер файла и метку времени.<br>
@@ -88,3 +87,19 @@ drwx------  2 speech-dispatcher root            4.0K Jan 19  2020 speech-dispatc
 -rw-r-----  1 syslog            adm              55K Dec  2 08:47 syslog.2.gz<br>
 -rw-r-----  1 syslog            adm             113K Nov  4 22:52 syslog.3.gz*<br>
 Добавление прописной буквы **R** в качестве аргумента команды **ls** приводит к отображению подкаталогов с файлами и вложенными подкаталогами, независимо от глубины вложения.
+## pwd
+Отображает текущий рабочий каталог.<br>
+*catware@ubuntu:~$ pwd<br>
+/home/catware*<br>
+## cd
+Смена каталога.<br>
+*catware@ubuntu:~$ pwd<br>
+/home/catware<br>
+catware@ubuntu:~$ cd /<br>
+catware@ubuntu:/$ pwd<br>
+/<br>
+catware@ubuntu:/$ cd /home/catware<br>
+catware@ubuntu:~$ pwd<br>
+/home/catware<br>
+catware@ubuntu:~$*<br> 
+**cd** без каких-либо аргументов вернет вас в домашний каталог вошедшего в систему пользователя.
