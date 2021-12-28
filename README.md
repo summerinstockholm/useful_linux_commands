@@ -119,3 +119,18 @@ UUID=3dbaa993-4728-4891-a08a-2d93e73df9a7 /               ext4    errors=remount
 UUID=C195-F970  /boot/efi       vfat    umask=0077      0       1
 /swapfile                                 none            swap    sw              0       0<br>
 /dev/fd0        /media/floppy0  auto    rw,user,noauto,exec,utf8 0       0*<br>
+## less
+Вывод содержимого файла по страницам.<br>
+*catware@ubuntu:~$ less /etc/services<br>
+\# Network services, Internet style<br>
+\#<br>
+\# Note that it is presently the policy of IANA to assign a single well-known<br>
+\# port number for both TCP and UDP; hence, officially ports have two entries<br>
+\# even if the protocol doesn't support UDP operations.<br>
+\#<br>
+\# Updated from https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml .<br>
+\#<br>
+\# New ports will be added on request if they have been officially assigned<br>
+\# by IANA and used in the real-world or are needed by a debian package.<br>
+\# If you need a huge list of used numbers please install the nmap package.*<br>
+
