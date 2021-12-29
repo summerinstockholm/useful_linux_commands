@@ -133,4 +133,9 @@ UUID=C195-F970  /boot/efi       vfat    umask=0077      0       1
 \# New ports will be added on request if they have been officially assigned<br>
 \# by IANA and used in the real-world or are needed by a debian package.<br>
 \# If you need a huge list of used numbers please install the nmap package.*<br>
-
+## touch
+Создание пустого файла. Команда **touch** используется для изменения временной метки файла. С помощью этой команды вы можете изменять время доступа к файлу и время его<br> изменения. Если указанный файл не существует, touch создаст файл нулевого размера с указанным именем.<br>
+*catware@ubuntu:~$ touch myfile<br>
+catware@ubuntu:~$ ls<br>
+Desktop    Downloads  myfile    Public  Templates<br>
+Documents  Music      Pictures  snap    Videos*<br>
