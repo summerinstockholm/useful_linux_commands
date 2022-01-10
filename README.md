@@ -135,7 +135,18 @@ UUID=C195-F970  /boot/efi       vfat    umask=0077      0       1
 \# If you need a huge list of used numbers please install the nmap package.*<br>
 ## touch
 Создание пустого файла. Команда **touch** используется для изменения временной метки файла. С помощью этой команды вы можете изменять время доступа к файлу и время его<br> изменения. Если указанный файл не существует, touch создаст файл нулевого размера с указанным именем.<br>
-*catware@ubuntu:~$ touch myfile<br>
-catware@ubuntu:~$ ls<br>
-Desktop    Downloads  myfile    Public  Templates<br>
-Documents  Music      Pictures  snap    Videos*<br>
+*catware@ubuntu:~$ touch myfile <br>
+catware@ubuntu:~$ ls <br>
+Desktop    Downloads  myfile    Public  Templates <br>
+Documents  Music      Pictures  snap    Videos* <br>
+## stat
+Вывод на экран информации о файле.<br>
+*catware@ubuntu:~$ stat myfile<br>
+  File: myfile<br>
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file<br>
+Device: 805h/2053d	Inode: 524386      Links: 1<br>
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/ catware)   Gid: ( 1000/ catware)<br>
+Access: 2021-12-29 11:20:27.400129311 +0300<br>
+Modify: 2021-12-29 11:20:16.008094495 +0300<br>
+Change: 2021-12-29 11:20:16.008094495 +0300<br>
+ Birth: -*<br>
