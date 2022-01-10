@@ -135,8 +135,8 @@ UUID=C195-F970  /boot/efi       vfat    umask=0077      0       1
 \# If you need a huge list of used numbers please install the nmap package.*<br>
 ## touch
 Создание пустого файла. Команда **touch** используется для изменения временной метки файла. С помощью этой команды вы можете изменять время доступа к файлу и время его<br> изменения. Если указанный файл не существует, touch создаст файл нулевого размера с указанным именем.<br>
-*catware@ubuntu:$ touch myfile<br>
-catware@ubuntu:$ ls<br>
+*catware@ubuntu:\~$ touch myfile<br>
+catware@ubuntu:\~$ ls<br>
 Desktop    Downloads  myfile    Public  Templates<br>
 Documents  Music      Pictures  snap    Videos*<br>
 ## stat
@@ -152,19 +152,19 @@ Change: 2021-12-29 11:20:16.008094495 +0300<br>
  Birth: -*<br>
 ## mkdir
 Создание каталога.<br>
-*catware@ubuntu:~$ mkdir myplace*<br>
+*catware@ubuntu:\~$ mkdir myplace*<br>
 ## rmdir
 Удаление пустого каталога.<br>
-*catware@ubuntu:~$ mkdir myplace<br>
-catware@ubuntu:~$ cd myplace<br>
-catware@ubuntu:~/myplace$ touch newfile<br>
-catware@ubuntu:~/myplace$ ls<br>
+*catware@ubuntu:\~$ mkdir myplace<br>
+catware@ubuntu:\~$ cd myplace<br>
+catware@ubuntu:\~/myplace$ touch newfile<br>
+catware@ubuntu:\~/myplace$ ls<br>
 newfile<br>
-catware@ubuntu:~/myplace$ cd ..<br>
-catware@ubuntu:~$ rmdir myplace<br>
+catware@ubuntu:\~/myplace$ cd ..<br>
+catware@ubuntu:\~$ rmdir myplace<br>
 rmdir: failed to remove 'myplace': Directory not empty*<br>
 По умолчанию команда rmdir выдает ошибку, если вы попытаетесь удалить непустой каталог. Однако, если вы хотите, вы можете отменить вывод ошибки, используя<br> 
 опцию --ignore-fail-on-non-empty.<br>
 ## rm
 Удаляет файлы и целые деревья каталогов.<br>
-*catware@ubuntu:~$ rm -r myplace*<br>
+*catware@ubuntu:\~$ rm -r myplace*<br>
