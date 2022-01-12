@@ -205,3 +205,59 @@ device            ext_range          mq         ro         slaves*<br>
 ## man
 Команда man позволяет получить доступ к общей базе справки по команде, функции или программе. Обычно для просмотра справки программе надо передать название команды или другого объекта в системе.<br>
 *catware@ubuntu:~$ man man*<br>
+## journalctl
+Выведет все записи из всех журналов, включая ошибки и предупреждения, начиная с того момента, когда система начала загружаться. Старые записи событий будут наверху, более новые — внизу, вы можете использовать PageUp и PageDown чтобы перемещаться по списку, Enter — чтобы пролистывать журнал построчно и Q — чтобы выйти.<br>
+*catware@ubuntu:~$ journalctl<br>
+-- Logs begin at Wed 2020-12-30 22:05:18 MSK, end at Wed 2022-01-12 16:01:20 MSK. --<br>
+Dec 30 22:05:18 ubuntu kernel: Linux version 5.4.0-58-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #64-Ubuntu SMP We><br>
+Dec 30 22:05:18 ubuntu kernel: Command line: BOOT_IMAGE=/boot/vmlinuz-5.4.0-58-generic root=UUID=3dbaa993-4728-4891-a08a-2d93e73df9a7 ro find_preseed=/pres><br>
+Dec 30 22:05:18 ubuntu kernel: KERNEL supported cpus:<br>
+Dec 30 22:05:18 ubuntu kernel:   Intel GenuineIntel<br>
+Dec 30 22:05:18 ubuntu kernel:   AMD AuthenticAMD<br>
+Dec 30 22:05:18 ubuntu kernel:   Hygon HygonGenuine<br>
+Dec 30 22:05:18 ubuntu kernel:   Centaur CentaurHauls<br>
+Dec 30 22:05:18 ubuntu kernel:   zhaoxin   Shanghai<br>
+Dec 30 22:05:18 ubuntu kernel: Disabled fast string operations<br>
+Dec 30 22:05:18 ubuntu kernel: x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'<br>
+Dec 30 22:05:18 ubuntu kernel: x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'<br>
+Dec 30 22:05:18 ubuntu kernel: x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'<br>
+Dec 30 22:05:18 ubuntu kernel: x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256<br>
+Dec 30 22:05:18 ubuntu kernel: x86/fpu: Enabled xstate features 0x7, context size is 832 bytes, using 'standard' format.<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-provided physical RAM map:<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x0000000000000000-0x000000000009e7ff] usable<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x000000000009e800-0x000000000009ffff] reserved<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x00000000000dc000-0x00000000000fffff] reserved<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x0000000000100000-0x00000000bfecffff] usable<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x00000000bfed0000-0x00000000bfefefff] ACPI data<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x00000000bfeff000-0x00000000bfefffff] ACPI NVS<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x00000000bff00000-0x00000000bfffffff] usable<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x00000000f0000000-0x00000000f7ffffff] reserved<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x00000000fec00000-0x00000000fec0ffff] reserved<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x00000000fee00000-0x00000000fee00fff] reserved<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x00000000fffe0000-0x00000000ffffffff] reserved<br>
+Dec 30 22:05:18 ubuntu kernel: BIOS-e820: [mem 0x0000000100000000-0x000000013fffffff] usable<br>
+Dec 30 22:05:18 ubuntu kernel: NX (Execute Disable) protection: active<br>
+Dec 30 22:05:18 ubuntu kernel: SMBIOS 2.7 present.<br>
+Dec 30 22:05:18 ubuntu kernel: DMI: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 02/27/2020<br>
+Dec 30 22:05:18 ubuntu kernel: vmware: hypercall mode: 0x00<br>
+Dec 30 22:05:18 ubuntu kernel: Hypervisor detected: VMware<br>
+Dec 30 22:05:18 ubuntu kernel: vmware: TSC freq read from hypervisor : 3510.309 MHz<br>
+Dec 30 22:05:18 ubuntu kernel: vmware: Host bus clock speed read from hypervisor : 66000000 Hz<br>
+Dec 30 22:05:18 ubuntu kernel: vmware: using sched offset of 6302858877 ns<br>
+Dec 30 22:05:18 ubuntu kernel: tsc: Detected 3510.309 MHz processor<br>
+Dec 30 22:05:18 ubuntu kernel: e820: update [mem 0x00000000-0x00000fff] usable ==> reserved<br>
+Dec 30 22:05:18 ubuntu kernel: e820: remove [mem 0x000a0000-0x000fffff] usable<br>
+Dec 30 22:05:18 ubuntu kernel: last_pfn = 0x140000 max_arch_pfn = 0x400000000<br>
+Dec 30 22:05:18 ubuntu kernel: MTRR default type: uncachable<br>
+Dec 30 22:05:18 ubuntu kernel: MTRR fixed ranges enabled:<br>
+Dec 30 22:05:18 ubuntu kernel:   00000-9FFFF write-back<br>
+Dec 30 22:05:18 ubuntu kernel:   A0000-BFFFF uncachable<br>
+Dec 30 22:05:18 ubuntu kernel:   C0000-CBFFF write-protect<br>
+Dec 30 22:05:18 ubuntu kernel:   CC000-EFFFF uncachable<br>
+Dec 30 22:05:18 ubuntu kernel:   F0000-FFFFF write-protect<br>
+Dec 30 22:05:18 ubuntu kernel: MTRR variable ranges enabled:<br>
+Dec 30 22:05:18 ubuntu kernel:   0 base 00000000000 mask 7E000000000 write-back<br>
+Dec 30 22:05:18 ubuntu kernel:   1 base 000C0000000 mask 7FFC0000000 uncachable<br>
+Dec 30 22:05:18 ubuntu kernel:   2 disabled<br>
+Dec 30 22:05:18 ubuntu kernel:   3 disabled*<br>
+Более подробно почитать можно тут: https://habr.com/ru/company/ruvds/blog/533918/
