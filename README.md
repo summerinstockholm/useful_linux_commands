@@ -168,3 +168,8 @@ rmdir: failed to remove 'myplace': Directory not empty*<br>
 ## rm
 Удаляет файлы и целые деревья каталогов.<br>
 *catware@ubuntu:\~$ rm -r myplace*<br>
+## cp
+Команда позволяет копировать файлы и директории.<br>
+*catware@ubuntu:~$ touch file1 file2 file3<br>
+catware@ubuntu:~$ mkdir newdir<br>
+catware@ubuntu:~$ cp file1 newdir*<br>
