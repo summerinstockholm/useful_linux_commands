@@ -12,6 +12,15 @@
   Operating System: Ubuntu 20.04.3 LTS<br>
             Kernel: Linux 5.11.0-41-generic<br>
       Architecture: x86-64*<br>
+## Структура каталогов
+**/** - корневой каталог<br>
+**/etc** - файлы конфигурации программы<br>
+**/var** - часто меняющееся содержимое (например, логи)<br>
+**/home** - файлы учетной записи пользователя<br>
+**/sbin** - системные бинарные файлы<br>
+**/bin** - пользовательские бинарные файлы<br>
+**/lib** - общие библиотеки<br>
+**/usr** - сторонние бинарные файлы<br>
 ## ls
 Вывод содержимого каталога.<br>
 **ls -l** - выводит не только список имен объектов, но и их права доступа к файлам, имя владельца, группу, размер файла и метку времени.<br>
@@ -170,6 +179,10 @@ rmdir: failed to remove 'myplace': Directory not empty*<br>
 *catware@ubuntu:\~$ rm -r myplace*<br>
 ## cp
 Команда позволяет копировать файлы и директории.<br>
-*catware@ubuntu:~$ touch file1 file2 file3<br>
-catware@ubuntu:~$ mkdir newdir<br>
+*catware@ubuntu:\~$ touch file1 file2 file3<br>
+catware@ubuntu:\~$ mkdir newdir<br>
 catware@ubuntu:~$ cp file1 newdir*<br>
+## mv
+Команда **mv** перемещает объект из одного места в другое.<br>
+*catware@ubuntu:~$ mv file2 newdir*<br>
+
