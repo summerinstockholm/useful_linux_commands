@@ -185,4 +185,20 @@ catware@ubuntu:~$ cp file1 newdir*<br>
 ## mv
 Команда **mv** перемещает объект из одного места в другое.<br>
 *catware@ubuntu:~$ mv file2 newdir*<br>
-
+## Как узнать сколько всего места на одном из жестких дисков?
+*catware@ubuntu:~$ cat /sys/block/sda/size<br>
+41943040*<br>
+## Как узнать как обозначены диски в системе?<br>
+Linux организует подключенное хранилище как блочное устройство
+*catware@ubuntu:~$ cd /sys/block/<br>
+catware@ubuntu:/sys/block$ ls<br>
+loop0  loop10  loop12  loop14  loop16  loop18  loop3  loop5  loop7  loop9  sr0<br>
+loop1  loop11  loop13  loop15  loop17  loop2   loop4  loop6  loop8  sda*<br>
+## Как посмотреть разделы?
+*catware@ubuntu:/sys/block$ cd sda<br>
+catware@ubuntu:/sys/block/sda$ ls<br>
+alignment_offset  discard_alignment  hidden     power      sda1    stat<br>
+bdi               events             holders    queue      sda2    subsystem<br>
+capability        events_async       inflight   range      sda5    trace<br>
+dev               events_poll_msecs  integrity  removable  size    uevent<br>
+device            ext_range          mq         ro         slaves*<br>
