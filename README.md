@@ -189,7 +189,7 @@ catware@ubuntu:~$ cp file1 newdir*<br>
 *catware@ubuntu:~$ cat /sys/block/sda/size<br>
 41943040*<br>
 ## Как узнать как обозначены диски в системе?<br>
-Linux организует подключенное хранилище как блочное устройство
+Linux организует подключенное хранилище как блочное устройство<br>
 *catware@ubuntu:~$ cd /sys/block/<br>
 catware@ubuntu:/sys/block$ ls<br>
 loop0  loop10  loop12  loop14  loop16  loop18  loop3  loop5  loop7  loop9  sr0<br>
@@ -202,3 +202,6 @@ bdi               events             holders    queue      sda2    subsystem<br>
 capability        events_async       inflight   range      sda5    trace<br>
 dev               events_poll_msecs  integrity  removable  size    uevent<br>
 device            ext_range          mq         ro         slaves*<br>
+## man
+Команда man позволяет получить доступ к общей базе справки по команде, функции или программе. Обычно для просмотра справки программе надо передать название команды или другого объекта в системе.<br>
+*catware@ubuntu:~$ man man*<br>
