@@ -261,3 +261,54 @@ Dec 30 22:05:18 ubuntu kernel:   1 base 000C0000000 mask 7FFC0000000 uncachable<
 Dec 30 22:05:18 ubuntu kernel:   2 disabled<br>
 Dec 30 22:05:18 ubuntu kernel:   3 disabled*<br>
 Более подробно почитать можно тут: https://habr.com/ru/company/ruvds/blog/533918/
+## date
+Выводит текущие время и дату.<br>
+*catware@ubuntu:~$ date<br>
+Mon 17 Jan 2022 04:32:00 PM MSK*<br>
+## cal
+По умолчанию выводит календарь текущего месяца<br>
+*catware@ubuntu:~$ cal<br>
+    January 2022<br>      
+Su Mo Tu We Th Fr Sa<br>  
+                   1<br>  
+ 2  3  4  5  6  7  8<br>  
+ 9 10 11 12 13 14 15<br>  
+16 17 18 19 20 21 22<br>  
+23 24 25 26 27 28 29<br>  
+30 31*<br>
+## df
+Выводит объем свободного пространства на дисках.<br>
+*catware@ubuntu:~$ df<br>
+Filesystem     1K-blocks     Used Available Use% Mounted on<br>
+udev             4023664        0   4023664   0% /dev<br>
+tmpfs             811284     1864    809420   1% /run<br>
+/dev/sda5       19992176 10656532   8297052  57% /<br>
+tmpfs            4056400        0   4056400   0% /dev/shm<br>
+tmpfs               5120        4      5116   1% /run/lock<br>
+tmpfs            4056400        0   4056400   0% /sys/fs/cgroup<br>
+/dev/loop0           128      128         0 100% /snap/bare/5<br>
+/dev/loop1        151424   151424         0 100% /snap/chromium/1854<br>
+/dev/loop2        151168   151168         0 100% /snap/chromium/1864<br>
+/dev/loop3         56832    56832         0 100% /snap/core18/2253<br>
+/dev/loop4         56960    56960         0 100% /snap/core18/2284<br>
+/dev/loop5         63360    63360         0 100% /snap/core20/1242<br>
+/dev/loop6         63488    63488         0 100% /snap/core20/1270<br>
+/dev/loop8        166784   166784         0 100% /snap/gnome-3-28-1804/145<br>
+/dev/loop7        168832   168832         0 100% /snap/gnome-3-28-1804/161<br>
+/dev/loop9        224256   224256         0 100% /snap/gnome-3-34-1804/72<br>
+/dev/loop10       224256   224256         0 100% /snap/gnome-3-34-1804/77<br>
+/dev/loop11       253952   253952         0 100% /snap/gnome-3-38-2004/87<br>
+/dev/loop12        66688    66688         0 100% /snap/gtk-common-themes/1515<br>
+/dev/loop13        66816    66816         0 100% /snap/gtk-common-themes/1519<br>
+/dev/loop14        52224    52224         0 100% /snap/snap-store/547<br>
+/dev/loop15        55552    55552         0 100% /snap/snap-store/558<br>
+/dev/loop16        43264    43264         0 100% /snap/snapd/14066<br>
+/dev/loop17        44416    44416         0 100% /snap/snapd/14295<br>
+/dev/sda1         523248        4    523244   1% /boot/efi<br>
+tmpfs             811280       20    811260   1% /run/user/1000*<br>
+## free
+Выводит объем свободного пространства в оперативной памяти.<br>
+*catware@ubuntu:~$ free<br>
+              total        used        free      shared  buff/cache   available<br>
+Mem:        8112804      887464     6491688        2016      733652     6971692<br>
+Swap:        945416           0      945416*<br>
