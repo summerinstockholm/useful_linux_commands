@@ -116,6 +116,10 @@ drwx------  2 speech-dispatcher root            4.0K Jan 19  2020 speech-dispatc
 **4096** - размер файла в байтах<br>
 **Dec 28 15:09** - дата и время последнего изменения<br>
 **tmp\*** - имя файла<br>
+## file
+Выводит краткое описание содержимого папки/файла:<br>
+*catware@ubuntu:~$ file newdir<br>
+newdir: directory*<br>
 ## pwd
 Отображает текущий рабочий каталог.<br>
 *catware@ubuntu:~$ pwd<br>
