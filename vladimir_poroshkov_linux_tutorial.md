@@ -608,14 +608,14 @@ ls (1)               - list directory contents*<br>
 ## alias
 Команду *alias* можно использовать для создания псевдонимов с определенным набором команд которые выполнятся последовательно или для просмотра всех доступных псевдонимах<br>
 в системе на текущий момент<br>
-*catware@ubuntu:~$ type foo<br>
+*catware@ubuntu:~\$ type foo<br>
 bash: type: foo: not found<br>
-catware@ubuntu:~$ alias foo='cd /usr; ls; cd -'<br>
-catware@ubuntu:~$ foo<br>
+catware@ubuntu:~\$ alias foo='cd /usr; ls; cd -'<br>
+catware@ubuntu:~\$ foo<br>
 bin    include  lib32  libexec  local  share<br>
 games  lib      lib64  libx32   sbin   src<br>
 /home/catware<br>
-catware@ubuntu:~$ alias<br>
+catware@ubuntu:~\$ alias<br>
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'<br>
 alias egrep='egrep --color=auto'<br>
 alias fgrep='fgrep --color=auto'<br>
