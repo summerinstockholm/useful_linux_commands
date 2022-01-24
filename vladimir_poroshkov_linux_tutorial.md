@@ -501,3 +501,127 @@ tmpfs             811280       20    811260   1% /run/user/1000*<br>
               total        used        free      shared  buff/cache   available<br>
 Mem:        8112804      887464     6491688        2016      733652     6971692<br>
 Swap:        945416           0      945416*<br>
+## Что такое команды?
+Команда может быть:<br>
+**Выполняемой программой. К этой категории относятся скомпилированные двоичные программы, например написанные на C/C++, программы, написанные на языках<br>
+сценариев, таких как shell, Perl и т.д.**<br>
+**Встроенной командной, реализованной внутри самой командной оболочки. Например, команда *cd*.**<br>
+**Функцией командой оболочки. Функции командной оболочки - это миниатюрные сценарии на языке командной оболочки, встроенные в окружение.**<br>
+**Псевдонимом. Псевдоним (alias) - это команда, которую мы можем определить сами, сконструировав из других команд.<br>
+## type
+Получение типа команды<br>
+*catware@ubuntu:~$ type type<br>
+type is a shell builtin<br>
+catware@ubuntu:~$ type ls<br>
+ls is aliased to `ls --color=auto'<br>
+catware@ubuntu:~$ type cp<br>
+cp is /usr/bin/cp*<br>
+## which
+Определение местоположения исполняемого файла.<br>
+catware@ubuntu:~$ which ls<br>
+/usr/bin/ls*<br>
+## help
+Получение справки для встроенных команд.<br>
+*catware@ubuntu:~$ help cd<br>
+cd: cd [-L|[-P [-e]] [-@]] [dir]<br>
+    Change the shell working directory.<br>
+    
+    Change the current directory to DIR.  The default DIR is the value of the<br>
+    HOME shell variable.<br>
+    
+    The variable CDPATH defines the search path for the directory containing<br>
+    DIR.  Alternative directory names in CDPATH are separated by a colon (:).<br>
+    A null directory name is the same as the current directory.  If DIR begins<br>
+    with a slash (/), then CDPATH is not used.<br>
+    
+    If the directory is not found, and the shell option `cdable_vars' is set,<br>
+    the word is assumed to be  a variable name.  If that variable has a value,<br>
+    its value is used for DIR.<br>
+    
+    Options:<br>
+      -L	force symbolic links to be followed: resolve symbolic<br>
+    		links in DIR after processing instances of `..'<br>
+      -P	use the physical directory structure without following<br>
+    		symbolic links: resolve symbolic links in DIR before<br>
+    		processing instances of `..'<br>
+      -e	if the -P option is supplied, and the current working<br>
+    		directory cannot be determined successfully, exit with<br>
+    		a non-zero status<br>
+      -@	on systems that support it, present a file with extended<br>
+    		attributes as a directory containing the file attributes<br>
+    
+    The default is to follow symbolic links, as if `-L' were specified.<br>
+    `..' is processed by removing the immediately previous pathname component<br>
+    back to a slash or the beginning of DIR.<br>
+    
+    Exit Status:<br>
+    Returns 0 if the directory is changed, and if $PWD is set successfully when<br>
+    -P is used; non-zero otherwise.<br>
+## man
+Вывод страниц справочного руководства. В большинстве систем man использует less для вывода страницы, поэтому при просмотре страницы можно использовать все известные команды<br>
+less.<br>
+*catware@ubuntu:~$ man ls*<br>
+Организация справочного руководства:<br>
+**1** - пользовательские команды<br>
+**2** - программные интерфейсы системных вызовов в ядре<br>
+**3** - программные интерфейсы в библиотеке C<br>
+**4** - специальные файл, такие как узлы устройств и драйверы<br>
+**5** - форматы файлов<br>
+**6** - игры и развлечения, такие как хранители экрана<br>
+**7** - прочее<br>
+**8** - команды системного администрирования<br>
+## apropos
+Вывод списка подходящих программ.<br>
+*catware@ubuntu:~$ apropos cd<br>
+apt-cdrom (8)        - APT CD-ROM management utility<br>
+cd-create-profile (1) - Color Manager Profile Creation Tool<br>
+cd-fix-profile (1)   - Color Manager Testing Tool<br>
+cd-it8 (1)           - Color Manager Testing Tool<br>
+gcov-dump (1)        - offline gcda and gcno profile dump tool<br>
+gcov-dump-9 (1)      - offline gcda and gcno profile dump tool<br>
+gcov-tool (1)        - offline gcda profile processing tool<br>
+gcov-tool-9 (1)      - offline gcda profile processing tool<br>
+hex2hcd (1)          - Broadcom Bluetooth firmware converter<br>
+hipercdecode (1)     - Decode a HIPERC stream into human readable form.<br>
+libOpenCL (7)        - OCL-ICD implementation of OpenCL ICD loader<br>
+libOpenCL.so (7)     - OCL-ICD implementation of OpenCL ICD loader<br>
+mcd (1)              - change MSDOS directory<br>
+mcdiff (1)           - Visual shell for Unix-like systems.<br>
+Net::DNS::RR::CDNSKEY (3pm) - DNS CDNSKEY resource record<br>
+Net::DNS::RR::CDS (3pm) - DNS CDS resource record<br>
+Net::DNS::SEC::ECDSA (3pm) - DNSSEC ECDSA digital signature algorithm<br>
+rsyncd.conf (5)      - configuration file for rsync in daemon mode<br>
+systemd-timesyncd (8) - Network Time Synchronization<br>
+systemd-timesyncd.service (8) - Network Time Synchronization<br>
+tcdrain (3)          - get and set terminal attributes, line control, get and...<br>
+timesyncd.conf (5)   - Network Time Synchronization configuration files<br>
+timesyncd.conf.d (5) - Network Time Synchronization configuration files<br>
+x86_64-linux-gnu-gcov-dump (1) - offline gcda and gcno profile dump tool<br>
+x86_64-linux-gnu-gcov-dump-9 (1) - offline gcda and gcno profile dump tool<br>
+x86_64-linux-gnu-gcov-tool (1) - offline gcda profile processing tool<br>
+x86_64-linux-gnu-gcov-tool-9 (1) - offline gcda profile processing tool<br>
+XML::LibXML::CDATASection (3pm) - XML::LibXML Class for CDATA Sections*<br>
+## whatis
+Вывод очень краткого описания команды.<br>
+*catware@ubuntu:~$ whatis ls<br>
+ls (1)               - list directory contents*<br>
+## alias
+Команду *alias* можно использовать для создания псевдонимов с определенным набором команд которые выполнятся последовательно или для просмотра всех доступных псевдонимах<br>
+в системе на текущий момент<br>
+*catware@ubuntu:~$ type foo<br>
+bash: type: foo: not found<br>
+catware@ubuntu:~$ alias foo='cd /usr; ls; cd -'<br>
+catware@ubuntu:~$ foo<br>
+bin    include  lib32  libexec  local  share<br>
+games  lib      lib64  libx32   sbin   src<br>
+/home/catware<br>
+catware@ubuntu:~$ alias<br>
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'<br>
+alias egrep='egrep --color=auto'<br>
+alias fgrep='fgrep --color=auto'<br>
+alias foo='cd /usr; ls; cd -'<br>
+alias grep='grep --color=auto'<br>
+alias l='ls -CF'<br>
+alias la='ls -A'<br>
+alias ll='ls -alF'<br>
+alias ls='ls --color=auto'*<br>
