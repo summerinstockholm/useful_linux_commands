@@ -295,20 +295,20 @@ catware@ubuntu:~$ cp file1 newdir*<br>
 ссылку, запись будет выполнена в файл, на который она указывает. Однако при удалении символической ссылки удаляется только *символическая ссылка, но не файл*. Если удалить<br>
 файл, до того как будет удалена ссылка, ссылка останется на месте, но будет указывать в никуда. Такие ссылки называют *битыми*.**<br>
 **Создание жестких ссылок**:<br>
-*catware@ubuntu:~$ mkdir playground<br>
-catware@ubuntu:~$ cd playground<br>
-catware@ubuntu:~/playground$ mkdir dir1 dir2<br>
-catware@ubuntu:~/playground$ cp /etc/passwd .<br>
-catware@ubuntu:~/playground$ mv passwd fun<br>
-catware@ubuntu:~/playground$ ln fun fun-hard<br>
-catware@ubuntu:~/playground$ ln fun dir1/fun-hard<br>
-catware@ubuntu:~/playground$ ln fun dir2/fun-hard<br>
+*catware@ubuntu:\~$ mkdir playground<br>
+catware@ubuntu:\~$ cd playground<br>
+catware@ubuntu:\~/playground$ mkdir dir1 dir2<br>
+catware@ubuntu:\~/playground$ cp /etc/passwd .<br>
+catware@ubuntu:\~/playground$ mv passwd fun<br>
+catware@ubuntu:\~/playground$ ln fun fun-hard<br>
+catware@ubuntu:\~/playground$ ln fun dir1/fun-hard<br>
+catware@ubuntu:\~/playground$ ln fun dir2/fun-hard<br>
 **Как убедится что fun и fun-hard один и тот же файл?**<br>
 Рассуждая о жестких ссылках - полезно представлять файлы состоящими из двух частей - раздела с данными, где хранится содержимое и раздела с именем, где хранится имя файла<br>
 Создавая жесткую ссылку, мы фактически создаем дополнительный раздел с именем, ссылающийся на тот же раздел с данными. Цепочку дисковых блоков система присваивает тому,<br>
 что называется индексным узлом (inode), который затем присваивается разделу с именем. То есть каждая жесткая ссылка ссылается на опреденный индексный узел с содержимым<br> 
 файла. Команда *ls* может извлекать эту информацию. Для этого ее нужно вызвать с параметром *-i*<br>
-*catware@ubuntu:~/playground$ ls -li<br>
+*catware@ubuntu:\~/playground$ ls -li<br>
 total 16<br>
 924319 drwxrwxr-x 2 catware catware 4096 Jan 20 15:58 dir1<br>
 924320 drwxrwxr-x 2 catware catware 4096 Jan 20 15:59 dir2<br>
@@ -317,10 +317,10 @@ total 16<br>
 **Жесткие ссылки не могут указывать на файлы, находящиеся на других физических устройства.**<br>
 **Жесткие ссылки не могут указывать на каталоги - только на файлы.**<br>
 **Символическая ссылка - это файл особого типа, хранящий текстовый указатель на файл или каталог.**<br>
-*catware@ubuntu:~/playground$ ln -s fun fun-sym<br>
-catware@ubuntu:~/playground$ ln -s ../fun dir1/fun-sym<br>
-catware@ubuntu:~/playground$ ln -s ../fun dir2/fun-sym<br>
-catware@ubuntu:~/playground$ ls -l dir1<br>
+*catware@ubuntu:\~/playground$ ln -s fun fun-sym<br>
+catware@ubuntu:\~/playground$ ln -s ../fun dir1/fun-sym<br>
+catware@ubuntu:\~/playground$ ln -s ../fun dir2/fun-sym<br>
+catware@ubuntu:\~/playground$ ls -l dir1<br>
 total 4<br>
 -rw-r--r-- 4 catware catware 2741 Jan 20 14:39 fun-hard<br>
 lrwxrwxrwx 1 catware catware    6 Jan 20 16:20 fun-sym -> ../fun*<br>
@@ -328,8 +328,8 @@ lrwxrwxrwx 1 catware catware    6 Jan 20 16:20 fun-sym -> ../fun*<br>
 символической ссылки fun-sym файл fun находится в каталоге уровнем выше. Стоит обратить также внимание на размер файла симлинка равный 6, - это число символов в строке<br>
 ../fun, а не размер файла, на который он указывает.<br>
 Помимо обычных файлов, симлинки могут указывать также на каталоги:<br>
-*catware@ubuntu:~/playground$ ln -s dir1 dir1-sym<br>
-catware@ubuntu:~/playground$ ls -li<br>
+*catware@ubuntu:\~/playground$ ln -s dir1 dir1-sym<br>
+catware@ubuntu:\~/playground$ ls -li<br>
 total 16<br>
 924319 drwxrwxr-x 2 catware catware 4096 Jan 20 16:20 dir1<br>
 923707 lrwxrwxrwx 1 catware catware    4 Jan 20 16:28 dir1-sym -> dir1<br>
@@ -511,11 +511,11 @@ Swap:        945416           0      945416*<br>
 **Псевдонимом. Псевдоним (alias) - это команда, которую мы можем определить сами, сконструировав из других команд.<br>
 ## type
 Получение типа команды<br>
-*catware@ubuntu:~$ type type<br>
+*catware@ubuntu:\~$ type type<br>
 type is a shell builtin<br>
-catware@ubuntu:~$ type ls<br>
+catware@ubuntu:\~$ type ls<br>
 ls is aliased to `ls --color=auto'<br>
-catware@ubuntu:~$ type cp<br>
+catware@ubuntu:\~$ type cp<br>
 cp is /usr/bin/cp*<br>
 ## which
 Определение местоположения исполняемого файла.<br>
@@ -728,3 +728,155 @@ Jan 26 18:58:54 ubuntu gnome-shell[1909]: Window manager warning: Overwriting ex
 **О паролях:**<br>
 *catware@ubuntu:~$ ls -la /etc/shadow<br>
 -rw-r----- 1 root shadow 1359 Dec 30  2020 /etc/shadow*<br>
+## echo
+Выводит строку текста<br>
+*catware@ubuntu:\~$ echo this is a some kind of test<br>
+this is a some kind of test*<br>
+*echo* выведет любой свой аргумент.<br>
+*catware@ubuntu:\~$ echo \*<br>
+Desktop Documents Downloads Music newdir Pictures Public snap Templates Videos*<br>
+\* - означает последовательность любых символов в имени файла, перед тем как выполнить команду *echo*, оболочка bash замещает символ \* чем-то другим<br>
+в данном случае именами файлов в текущем рабочем каталоге. После нажатия клавиши *Enter* командная оболочка автоматически производит подстановку любых <br>
+групповых симоволов в командной строке, прежде чем выполнить ее, поэтому команда *echo* не увидела \* - она получила уже готовый результат после подстановки.<br>
+Механизм работых групповых символов назвается - подстановкой пути.
+*catware@ubuntu:\~$ echo D\*<br>
+Desktop Documents Downloads*<br>
+*catware@ubuntu:\~$ echo \*s<br>
+Documents Downloads Pictures Templates Videos<br>
+*catware@ubuntu:\~$ echo [[:upper:]]\*<br>
+Desktop Documents Downloads Music Pictures Public Templates Videos*<br>
+*catware@ubuntu:\~$ echo /usr/\*/share*<br>
+Вывести домашний каталог текущего пользователя:<br>
+*catware@ubuntu:\~$ echo \~<br>
+/home/catware*<br>
+Вывести домашний каталог root пользователя:<br>
+*catware@ubuntu:\~$ echo \~root<br>
+/root*<br>
+Командная оболочка поддерживает также подстановку результатов арифметических выражений. Это позволяет использовать командную строку как калькулятор:<br>
+*catware@ubuntu:\~$ echo $((2+2))<br>
+4*<br>
+Для подстановки арифметических выражений используется следующий формат:<br>
+**$((выражение))**, где **выражение** - это арифметическое выражение, состоящее из значений и арифметических операторов.<br>
+*catware@ubuntu:\~$ echo $(((5\*\*2) \* 3))<br>
+75*<br>
+*catware@ubuntu:\~$ echo Пять разделить на два будет $((5/2))<br>
+Пять разделить на два будет 2*<br>
+*catware@ubuntu:\~$ echo и $((5%2)) в остатке.Б<br>
+и 1 в остатке.<br>
+C помощью подстановки фигурных скобок создается множество текстовых строк:<br>
+*catware@ubuntu:\~$ echo Впереди-{A,B,C}-позади<br>
+Впереди-A-позади Впереди-B-позади Впереди-C-позади*<br>
+Внутри фигурных скобок находится список строк, разделенных запятыми, или диапазон целых чисел или одиночных символов. Использование пробелов внутри фигурных скобок<br>
+не допускается.<br>
+*catware@ubuntu:\~$ echo Число_{1..5}<br>
+Число_1 Число_2 Число_3 Число_4 Число_5*<br>
+*catware@ubuntu:\~$ echo $BASH_VERSION<br>
+5.0.17(1)-release*<br>
+*catware@ubuntu:\~$ echo {01..15}<br>
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 15*<br>
+*catware@ubuntu:~$ echo {001..15}<br>
+001 002 003 004 005 006 007 008 009 010 011 012 013 014 015*<br>
+Диапазон символов в обратном порядке:<br>
+*catware@ubuntu:\~$ echo {Z..A}<br>
+Z Y X W V U T S R Q P O N M L K J I H G F E D C B A*<br>
+Организовать список каталогов по годам и месяцам:<br>
+*catware@ubuntu:\~$ mkdir Photos*<br>
+*catware@ubuntu:\~$ cd Photos*<br>
+*catware@ubuntu:\~/Photos$ mkdir {2020..2022}-{1..12}*<br>
+*catware@ubuntu:\~/Photos$ ls -la<br>
+total 152<br>
+drwxrwxr-x 38 catware catware 4096 Jan 30 16:07 .<br>
+drwxr-xr-x 19 catware catware 4096 Jan 30 16:06 ..<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-1<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-10<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-11<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-12<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-2<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-3<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-4<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-5<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-6<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-7<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-8<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2020-9<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-1<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-10<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-11<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-12<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-2<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-3<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-4<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-5<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-6<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-7<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-8<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2021-9<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-1<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-10<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-11<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-12<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-2<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-3<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-4<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-5<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-6<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-7<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-8<br>
+drwxrwxr-x  2 catware catware 4096 Jan 30 16:07 2022-9*<br>
+Посмотреть переменную USER, которая хранит ваше имя пользователя:
+*catware@ubuntu:\~$ echo $USER<br>
+catware*<br>
+Увидеть список доступных переменных:<br>
+*catware@ubuntu:\~$ printenv | less*<br>
+Подстановка команд позволяет использовать поток вывода команд в качестве аргументов других команд:<br>
+*catware@ubuntu:\~$ echo $(ls)<br>
+Desktop Documents Downloads ls-result.txt Music newdir Pictures Public snap Templates Videos*<br>
+Или:<br>
+*catware@ubuntu:\~$ ls -l $(which cp)<br>
+-rwxr-xr-x 1 root root 153976 Sep  5  2019 /usr/bin/cp*<br>
+Здесь результат команды *which cp* передается как аргумент команде *ls*, благодар чему мы получаем информацию о программе *cp*, не зная полного пути к ней.<br>
+Можно использовать целые конвейеры:<br>
+*catware@ubuntu:\~$ file $(ls -d /usr/bin/* | grep zip)<br>
+/usr/bin/bunzip2:      ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=00c09d800d549d58e3b7c4f6170446cc69bf14a5, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/bzip2:        ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=00c09d800d549d58e3b7c4f6170446cc69bf14a5, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/bzip2recover: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=aa9666f913c3a67eab9d62585a9b37e46d0c7cb9, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/funzip:       ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=16c10d3e99879c6257b23fba3c49032d8ac2e5b4, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/gpg-zip:      POSIX shell script, ASCII text executable<br>
+/usr/bin/gunzip:       POSIX shell script, ASCII text executable<br>
+/usr/bin/gzip:         ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=445b2aa3186ca2fc7b96fa7c42c348a1662769c1, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/mzip:         symbolic link to mtools<br>
+/usr/bin/p7zip:        POSIX shell script, ASCII text executable<br>
+/usr/bin/preunzip:     POSIX shell script, ASCII text executable<br>
+/usr/bin/prezip:       POSIX shell script, ASCII text executable<br>
+/usr/bin/prezip-bin:   ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=ce7944c0866242d3af5e47a0ca2bf83df0adb18f, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/unzip:        ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=24cc026c903214b86a62f49ad96b94dc0e4de18e, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/unzipsfx:     ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=cda85960c0f2092ac909d08f29f8f51a02451e6b, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/zip:          ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32,<br> BuildID[sha1]=c828586e6e7cf929500a5b9c04faece9eceed5cc, stripped<br>
+/usr/bin/zipcloak:     ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32,<br> BuildID[sha1]=6675095584351a4d9e63370ceb1dcce0232c6140, stripped<br>
+/usr/bin/zipdetails:   Perl script text executable<br>
+/usr/bin/zipgrep:      POSIX shell script, ASCII text executable<br>
+/usr/bin/zipinfo:      ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,<br> BuildID[sha1]=24cc026c903214b86a62f49ad96b94dc0e4de18e, for GNU/Linux 3.2.0, stripped<br>
+/usr/bin/zipnote:      ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32,<br> BuildID[sha1]=9d9a7264805021adae207c5d13fb0ab43a6fb04e, stripped<br>
+/usr/bin/zipsplit:     ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32,<br> BuildID[sha1]=80f65d65f35b6bb9d37e8074bfa1e01c4b7ce18e, stripped<br>
+В этом примере результаты конвейера превратились в список аргументов команды *file*. Механизм подстановки команд имеет альтернативный синтаксис, унаследованный<br>
+от более старых командных оболочек, который также поддерживается в bash. В нем вместо знака доллара и круглых скобок используются обратные апострофы:<br>
+*catware@ubuntu:\~$ ls -l `which cp`<br>
+-rwxr-xr-x 1 root root 153976 Sep  5  2019 /usr/bin/cp*<br>
+Экранирование:<br>
+*catware@ubuntu:\~$ echo text ~/\*.txt {a,b} $(echo foo) $((2+2)) $USER<br>
+text /home/catware/ls-result.txt a b foo 4 catware*<br>
+*catware@ubuntu:\~$ echo "text ~/\*.txt {a,b} $(echo foo) $((2+2)) $USER"<br>
+text ~/\*.txt {a,b} foo 4 catware*<br>
+*catware@ubuntu:\~$ echo 'text ~/\*.txt {a,b} $(echo foo) $((2+2)) $USER'<br>
+text ~/\*.txt {a,b} $(echo foo) $((2+2)) $USER*<br>
+Экранирование одного символа:<br>
+*catware@ubuntu:~$ echo "Баланс счета пользователя $USER: \$5.00"<br>
+Баланс счета пользователя catware: $5.00*<br>
+Управляющие последовательности:<br>
+**\a** - звонок. Заставляет компьютер подать звуковой сигнал<br>
+**\b** - backspace<br>
+**\n** - новая строка<br>
+**\r** - возврат каретки<br>
+**\t** - табуляция<br>
+*catware@ubuntu:\~$ sleep 10; echo -e "Time's up\a"<br>
+Time's up*<br>
