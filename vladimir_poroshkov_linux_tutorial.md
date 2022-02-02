@@ -902,3 +902,21 @@ text ~/\*.txt {a,b} $(echo foo) $((2+2)) $USER*<br>
 **\t** - табуляция<br>
 *catware@ubuntu:\~$ sleep 10; echo -e "Time's up\a"<br>
 Time's up*<br>
+## history
+Выводит содержимое истории команд<br>
+*catware@ubuntu:~$ history | less*<br>
+А что если нам понадобилось найти команды, использовавшиеся для получения списка содержимого /usr/bin:<br>
+*catware@ubuntu:\~$ history | grep /usr/bin | less<br>
+   73  ls -l /usr/bin > ls-output.txt<br>
+   77  ls -l /usr/bin > ls-output.txt<br>
+   98  ls -l /usr/bin | less<br>
+   99  ls -l /bin /usr/bin | sort | less<br>
+  102  ls /bin /usr/bin | sort | uniq | less<br>
+  104  ls /bin /usr/bin | sort | uniq -d | less<br>
+  105  ls /bin /usr/bin | sort | uniq | wc -l<br>
+  106  ls /bin /usr/bin | sort | uniq | grep zip<br>
+  113  ls /usr/bin | tail -n 5<br>
+  114  ls /usr/bin | head -n 5<br>
+  117  ls /usr/bin | tee ls.txt | grep zip<br>
+  176  file $(ls -d /usr/bin/\* | grep zip)<br>
+  203  history | grep /usr/bin | less*<br>
