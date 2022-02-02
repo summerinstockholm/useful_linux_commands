@@ -720,6 +720,28 @@ Jan 26 18:58:54 ubuntu gnome-shell[1909]: Window manager warning: Overwriting ex
 Команда *tee* читает данные со стандартного ввода и копирует их в стандартный вывод (чтобы дать возможсть передать их дальше по конвейеру) и в один или <br>
 несколько файлов. Это может пригодиться для сохранения промежуточных результатов обработки в конвейереж. Сохраню полный список файлов в каталогах в файле<br>
 *ls.txt*, перед тем как он будет отфильтрован командой *grep*:<br>
+*catware@ubuntu:\~$ ls /usr/bin | tee ls.txt | grep zip<br>
+bunzip2<br>
+bzip2<br>
+bzip2recover<br>
+funzip<br>
+gpg-zip<br>
+gunzip<br>
+gzip<br>
+mzip<br>
+p7zip<br>
+preunzip<br>
+prezip<br>
+prezip-bin<br>
+unzip<br>
+unzipsfx<br>
+zip<br>
+zipcloak<br>
+zipdetails<br>
+zipgrep<br>
+zipinfo<br>
+zipnote<br>
+zipsplit*<br>
 ## Где хранится информация о пользователях/группах/паролях в линукс?
 **О пользователях:**<br>
 *catware@ubuntu:~$ cat /etc/passwd*<br>
