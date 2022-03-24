@@ -1181,12 +1181,97 @@ catware@ubuntu:~$ kill 12508*<br>
 на этот сигнал, обновляя свой вывод в соответствии с новыми размерами окна терминала.<br>
 ## killall
 Посылка сигналов нескольким процессам. 
-*catware@ubuntu:~$ xlogo &<br>
+*catware@ubuntu:\~$ xlogo &<br>
 [1] 3485<br>
-catware@ubuntu:~$ xlogo &<br>
+catware@ubuntu:\~$ xlogo &<br>
 [2] 3486<br>
-catware@ubuntu:~$ killall xlogo<br>
-catware@ubuntu:~$<br>
+catware@ubuntu:\~$ killall xlogo<br>
+catware@ubuntu:\~$<br>
 [1]-  Terminated              xlogo<br>
 [2]+  Terminated              xlogo*<br>
-## 
+## ping
+Команда ping посылает специальные сетевые пакеты ICMP ECHO_REQUEST указанному сетевому узлу. Большинство сетевых устройств принимает эти пакеты и отвечат на них, <br>
+\- это позволяет проверить сетевые соединения.<br>
+*catware@srvubuntu:~$ ping linuxcommand.org<br>
+PING linuxcommand.org (216.105.38.11) 56(84) bytes of data.<br>
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=1 ttl=128 time=183 ms<br>
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=3 ttl=128 time=190 ms<br>
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=4 ttl=128 time=180 ms<br>
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=5 ttl=128 time=181 ms<br>
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=6 ttl=128 time=180 ms<br>
+--- linuxcommand.org ping statistics ---<br>
+6 packets transmitted, 5 received, 16,6667% packet loss, time 5047ms<br>
+rtt min/avg/max/mdev = 179.977/182.712/189.586/3.632 ms*<br>
+## traceroute
+Программа traceroute выводит список всех "переходов" (hops) на пути сетевого трафика между локальной системой и указанным узлом сети. Например, увидеть, как<br>
+выглядит маршрут к сайту https://ya.ru:<br>
+*catware@srvubuntu:~$ traceroute ya.ru<br>
+traceroute to ya.ru (87.250.250.242), 30 hops max, 60 byte packets<br>
+ 1  _gateway (192.168.121.2)  0.228 ms  0.285 ms  0.210 ms<br>
+ 2  \* \* \*<br>
+ 3  \* \* \*<br>
+ 4  \* \* \*<br>
+ 5  \* \* \*<br>
+ 6  \* \* \*<br>
+ 7  \* \* \*<br>
+ 8  \* \* \*<br>
+ 9  \* \* \*<br>
+10  \* \* \**<br>
+\* - означает что маршрутизатор не предоставляет идентификационной информации. Иногда это можно преодолеть через параметр **-T** или **-I**.<br>
+## ip
+Многофункциональный инструмент для настройки параметров подключения к сети, пришла на замену устаревшей команды **ifconfig**. С помощью **ip** можно исследовать<br>
+сетевые интерфейсы и таблицу маршрутизации системы.<br>
+*catware@srvubuntu:~$ ip a<br>
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000<br>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00<br>
+    inet 127.0.0.1/8 scope host lo<br>
+       valid_lft forever preferred_lft forever<br>
+    inet6 ::1/128 scope host<br>
+       valid_lft forever preferred_lft forever<br>
+2: ens32: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000<br>
+    link/ether 00:0c:29:7f:49:3c brd ff:ff:ff:ff:ff:ff<br>
+    inet 192.168.121.33/24 brd 192.168.121.255 scope global ens32<br>
+       valid_lft forever preferred_lft forever<br>
+    inet6 fe80::20c:29ff:fe7f:493c/64 scope link<br>
+       valid_lft forever preferred_lft forever<br>
+3: yes: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000<br>
+    link/ether 00:16:3e:ed:3c:a6 brd ff:ff:ff:ff:ff:ff<br>
+    inet 10.146.218.1/24 scope global yes<br>
+       valid_lft forever preferred_lft forever<br>
+    inet6 fd42:4123:b051:de38::1/64 scope global<br>
+       valid_lft forever preferred_lft forever<br>
+    inet6 fe80::216:3eff:feed:3ca6/64 scope link<br>
+       valid_lft forever preferred_lft forever<br>
+5: veth7696af45@if4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master yes state UP group default qlen 1000<br>
+    link/ether 2a:18:69:e7:56:2f brd ff:ff:ff:ff:ff:ff link-netnsid 0*<br>
+Выполняя причинно-следственную диагностику, первое, на что следует обратить внимание, - наличие слова UP в первой строке с информацией о каждом интерфейсе,<br>
+указывающего, что сетевой интерфейс включен, и присутствие допустимого IP-адреса в поле inet в третьей строке. Для систем использующих DHCP (протокол<br>
+динамической настройки хостов), наличие IP адреса в этом поле подтвердит нормальную работу DHCP.<br>
+## netstat
+Используется для исследования различных настроек сети и статистик. С помощью множества параметров этой команды можно просматривать самые разные аспекты<br>
+настройки сети. С помощью параметра **-ie**, например, можно исследовать сетевые интерфейсы в системе:<br>
+*catware@ubuntu:~$ netstat -ie<br>
+Kernel Interface table<br>
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500<br>
+        inet 192.168.121.128  netmask 255.255.255.0  broadcast 192.168.121.255<br>
+        inet6 fe80::e286:3a2c:deae:d7ec  prefixlen 64  scopeid 0x20\<link><br>
+        ether 00:0c:29:84:c1:fc  txqueuelen 1000  (Ethernet)<br>
+        RX packets 103385  bytes 150638051 (150.6 MB)<br>
+        RX errors 0  dropped 0  overruns 0  frame 0<br>
+        TX packets 50161  bytes 3118433 (3.1 MB)<br>
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0<br>
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536<br>
+        inet 127.0.0.1  netmask 255.0.0.0<br>
+        inet6 ::1  prefixlen 128  scopeid 0x10\<host><br>
+        loop  txqueuelen 1000  (Local Loopback)<br>
+        RX packets 846  bytes 75522 (75.5 KB)<br>
+        RX errors 0  dropped 0  overruns 0  frame 0<br>
+        TX packets 846  bytes 75522 (75.5 KB)<br>
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0*<br>
+Использование параметра **-r** позволит получить таблицу маршрутизации ядра. По этой таблице можно судить, как настроена передача пакетов между сетями.<br>
+*сatware@ubuntu:~$ netstat -r<br>
+Kernel IP routing table<br>
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface<br>
+default         _gateway        0.0.0.0         UG        0 0          0 ens33<br>
+link-local      0.0.0.0         255.255.0.0     U         0 0          0 ens33<br>
+192.168.121.0   0.0.0.0         255.255.255.0   U         0 0          0 ens33*<br>
