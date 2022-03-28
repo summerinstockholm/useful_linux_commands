@@ -1275,3 +1275,51 @@ Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface<b
 default         _gateway        0.0.0.0         UG        0 0          0 ens33<br>
 link-local      0.0.0.0         255.255.0.0     U         0 0          0 ens33<br>
 192.168.121.0   0.0.0.0         255.255.255.0   U         0 0          0 ens33*<br>
+## locate
+Выполняет быстрый поиск в базе данных имен файлов и выводит все имена, соответствующие искомой строке. Доступим необходимо найти все программами с именами,<br>
+начинающимися с zip. Поскольку требуется найти программы, можно предположить, что имя каталога с программами оканчивается на bin/.<br>
+*catware@srvubuntu:~$ mlocate bin/zip<br>
+/usr/bin/zipdetails*<br>
+## find
+Сложный способ поиска файлов. В отличие от программы locate, выполняющей поиск файлов по именам, программа **find** ищет файлы согласно заданным атрибутам в<br>
+указанном каталоге (и во вложенных подкаталогах).<br>
+В простейших случаях программе **find** можно передать одно или несколько имен каталогов для поиска. Например, с ее помощью можно получить список содержимого<br>
+домашнего каталога:<br>
+*catware@srvubuntu:\~$ find \~<br>
+/home/catware<br>
+/home/catware/.ansible<br>
+/home/catware/.ansible/tmp<br>
+/home/catware/.ansible/cp<br>
+/home/catware/.ssh<br>
+/home/catware/.ssh/known_hosts<br>
+/home/catware/.ssh/authorized_keys<br>
+/home/catware/.bash_logout<br>
+/home/catware/bash_scripts<br>
+/home/catware/bash_scripts/test.sh<br>
+/home/catware/.bashrc<br>
+/home/catware/.profile<br>
+/home/catware/snap<br>
+/home/catware/snap/lxd<br>
+/home/catware/snap/lxd/22526<br>
+/home/catware/snap/lxd/22526/.local<br>
+/home/catware/snap/lxd/22526/.local/share<br>
+/home/catware/snap/lxd/22526/.local/share/nano<br>
+/home/catware/snap/lxd/current<br>
+/home/catware/snap/lxd/22753<br>
+/home/catware/snap/lxd/22753/.local<br>
+/home/catware/snap/lxd/22753/.local/share<br>
+/home/catware/snap/lxd/22753/.local/share/nano<br>
+/home/catware/snap/lxd/common<br>
+/home/catware/snap/lxd/common/config<br>
+/home/catware/snap/lxd/common/config/config.yml*<br>
+Подсчитаем число файлов:<br>
+*catware@srvubuntu:\~$ find \~ | wc -l<br>
+222*<br>
+Команду **find** можно использовать для поиска файлов, соответствующих определенным критериям. Она делает посредством применения *проверок*,*операций*<br
+и *параметров*.<br>
+Допустим мы хотим получить список каталогв:
+*catware@srvubuntu:\~$ find \~ -type d | wc -l<br>
+99*<br>
+Добавив проверку **-type d**, ограничиваемся только поиском каталогов. Также можно ограничить поиск только обычными файлами:<br>
+*catware@srvubuntu:\~$ find \~ -type f | wc -l
+122*<br>
