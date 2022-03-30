@@ -1411,3 +1411,5 @@ link-local      0.0.0.0         255.255.0.0     U         0 0          0 ens33<b
 /home/catware/.cache/tracker/db-version.txt<br>
 /home/catware/.cache/tracker/db-locale.txt<br>
 /home/catware/.cache/tracker/first-index.txt*<br>
+Помимо предопределенных операций можно также вызывать произвольные команды. С этой целью используется операция **-exec**, что показано ниже:<br>
+**-exec *команда* {} ;**
