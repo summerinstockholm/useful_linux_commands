@@ -1387,4 +1387,27 @@ link-local      0.0.0.0         255.255.0.0     U         0 0          0 ens33<b
 слева на право. Часто используются для изменения порядка проверок по умолчанию, чтобы получить желаемый результат. Даже если скобки не нужны, иногда полезно<br>
 включать их, чтобы сделать команды более наглядными. Круглые скобки имеют специальное значение для командной оболочки, поэтому их нужно экранировать, чтобы они<br>
 были переданы команде find как аргументы. Экранируются через обратный слеш.<br>
-
+**find** позволяет выполнять наши операции, основываясь на результатах поиска. Предопределенные операции, поддерживаемые команды find:<br>
+**-delete** - удаляет текущий найденный файл<br>
+**-ls** - действует эквивалентно команде ls<br>
+**-print** - выводит полный путь к найденному файлу в стандартный вывод. Эта операция выполняется по умолчанию, если не указана никакая другая.<br>
+**-quit** - завершает выполнение команды после обнаружения первого совпадения.<br>
+*catware@ubuntu:~$ find ~ -type f -and -name '*.txt' -and -print<br>
+/home/catware/foo.txt<br>
+/home/catware/.mozilla/firefox/h3jbtdk1.default-release/SecurityPreloadState.txt<br>
+/home/catware/ls-result.txt<br>
+/home/catware/snap/chromium/common/chromium/ZxcvbnData/1/english_wikipedia.txt<br>
+/home/catware/snap/chromium/common/chromium/ZxcvbnData/1/passwords.txt<br>
+/home/catware/snap/chromium/common/chromium/ZxcvbnData/1/male_names.txt<br>
+/home/catware/snap/chromium/common/chromium/ZxcvbnData/1/surnames.txt<br>
+/home/catware/snap/chromium/common/chromium/ZxcvbnData/1/us_tv_and_film.txt<br>
+/home/catware/snap/chromium/common/chromium/ZxcvbnData/1/female_names.txt<br>
+/home/catware/snap/chromium/common/chromium/Subresource Filter/Unindexed Rules/9.34.0/LICENSE.txt<br>
+/home/catware/snap/chromium/1944/.pki/nssdb/pkcs11.txt<br>
+/home/catware/ls.txt<br>
+/home/catware/.cache/tracker/locale-for-miner-apps.txt<br>
+/home/catware/.cache/tracker/last-crawl.txt<br>
+/home/catware/.cache/tracker/parser-version.txt<br>
+/home/catware/.cache/tracker/db-version.txt<br>
+/home/catware/.cache/tracker/db-locale.txt<br>
+/home/catware/.cache/tracker/first-index.txt*<br>
